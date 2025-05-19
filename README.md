@@ -9,7 +9,35 @@ Note: Vault are deployed for each address to hold funds till the condition for a
 
 ## Architecture
 
-![Smart Contract Overview](images/Architecture.png)
+![Smart Contract Overview](img/Architecture.png)
+
+### Overview of each contract
+
+#### Vault Deployer
+
+Vault Deployer deploys a new vault for User to execute operations and hold assets.
+
+#### Vault
+
+Each address deploys it's own vault on each chain they want to create orders and deposit assets. These vaults can be interconnected using Hyperlane Mailbox to request order cancellation, funds to be transferred using CCTP V2 Hooks(Under development).
+
+The Vault stores condition params internally, and will be connected to Vault Factory for getting latest version of handler.
+
+#### Vault Factory
+
+The Contract maintains the registry of all the vaults and helps solver to index operations such as Order Creation, Asset Deposit, Order cancellation and Order Cancellation as well as maintain Cross-chain data for handler smart contract.
+
+#### Handler
+
+Handler is an upgradble smart contract which stores logic for evaluating conditions on Protocols such as Aave, Chainlink and Morpho. These conditions include
+
+ - Chainlink Price Feeds for assets
+ - Aave (Overall Portfolio, Collateral Information as per collateral token, Debt Information for each debt token, Supply Asset and Repay Integration Logic)
+ - Morpho(Borrow parameters for position, V1.1 Earn vaults Integration)
+ - Aerodrome (Integrated Router for executing Swaps )
+
+Note:
+In order to add more protocols such as Euler and chain based lending platforms, new version of Handler can be deployed and integrated into existing Vaults without any hassel to the users.
 
 
 ### Current Protocols Integrated on Mainnet
@@ -31,9 +59,9 @@ Note: Vault are deployed for each address to hold funds till the condition for a
 
 ### Arbitrum
 
-  - Vault Deployer - 0xEc9A1021cC0d4619ac6405a648239bEB0bFCf76C
-  - Vault Factory - 0xdE8bb0fbcA6deE981c607C54f94bdd34A9D15362
-  - Vault - 0x20c3d47D0551fcF44F906Cb04aEBB90ef4AA0BCA
+    - Vault Deployer - 0xEc9A1021cC0d4619ac6405a648239bEB0bFCf76C
+    - Vault Factory - 0xdE8bb0fbcA6deE981c607C54f94bdd34A9D15362
+    - Vault - 0x20c3d47D0551fcF44F906Cb04aEBB90ef4AA0BCA
 
 ## Indexer
 
