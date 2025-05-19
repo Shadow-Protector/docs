@@ -47,8 +47,6 @@ In order to add more protocols such as Euler and chain based lending platforms, 
  - Morpho Borrow Positions (Base)
  - Morpho Vaults (V1.1 on Base for deposit and holding ERC-4646 tokens)
 
-
-
 ### Base
 
     - Vault Deployer - 0xbF7d635B1F6fed745d9414a414F1f8B372C0bd79
@@ -56,18 +54,22 @@ In order to add more protocols such as Euler and chain based lending platforms, 
     - Handler - 0xdE8bb0fbcA6deE981c607C54f94bdd34A9D15362
     - Vault - 0x2554823F28f819a6D75081Ec65f7Be1798447eBD (Each address will have it's own vault to hold assets)
 
-
 ### Arbitrum
 
     - Vault Deployer - 0xEc9A1021cC0d4619ac6405a648239bEB0bFCf76C
     - Vault Factory - 0xdE8bb0fbcA6deE981c607C54f94bdd34A9D15362
     - Vault - 0x20c3d47D0551fcF44F906Cb04aEBB90ef4AA0BCA
 
+[Repo Link](https://github.com/Shadow-Protector/Smart-Contracts)
+
 ## Indexer
 
 Envio Indexer is being used to index smart contracts on Base Mainnet and will be required by solver to fetch ACTIVE_ORDERS and execute orders that fulfill the condition.
 
+[Repo Link](https://github.com/Shadow-Protector/Indexer)
 
 ## Solver
 
 A basic version of Solver is developed which can fetch active orders and check if the order's condition is true and can be executed on Base Mainnet.
+
+[Repo Link](https://github.com/Shadow-Protector/Solver)
