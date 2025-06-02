@@ -3,6 +3,20 @@
 ## Concept
 Creating a New form of limit orders that rely on Lending Protocols borrow position data to execute DeFi Actions such as Repaying Loan, Supplying  Collateral, Swapping Asset and more.
 
+## Scenarios
+
+### Cross-Platform Borrowing
+ The rate of interest is always variable on different platforms due to the way it's calculated, one could potentially arbitrage, by borrowing at a lower interest rate and depositing it another platform at higher yield.
+
+ Create an order on the platform by selection borrowing platform, specify the condtion on parameters such as collateral price, debt token price, health factor and deposit the yield bearing tokens (ERC20 or ERC-4646) tokens on the platform. Select if you want to repay or supply based on the lending platform
+
+#### What would happen ?
+
+  The yield bearing tokens would be earning till the point condition of your order is met, as soon as the solver submits the transaction, these tokens would be dissolved into the base token and used to supply or repay based on the order data.
+
+
+
+
 ## Smart Contracts
 
 Note: Vault are deployed for each address to hold funds till the condition for action becomes true and solver executes at a later stage.
